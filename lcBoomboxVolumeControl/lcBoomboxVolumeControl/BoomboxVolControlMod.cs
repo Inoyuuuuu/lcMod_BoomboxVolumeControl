@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace lcBoomboxVolumeControl
 {
     [BepInPlugin(modGUID, modName, modVersion)]
-    public class BoomboxVolumeControlMod : BaseUnityPlugin
+    public class BoomboxVolControlMod : BaseUnityPlugin
     {
         private const string modGUID = "inoyu.lcBoomboxVolumeControl";
         private const string modName = "BoomboxVolumeControl";
@@ -20,11 +20,11 @@ namespace lcBoomboxVolumeControl
 
         private readonly Harmony harmony = new Harmony(modGUID);
 
-        private static BoomboxVolumeControlMod instance;
+        private static BoomboxVolControlMod instance;
 
         internal ManualLogSource mls;
 
-        public static BoomboxVolumeDownOnButtonPress InputActionInstance = new BoomboxVolumeDownOnButtonPress();
+        public static BoomboxVolChangeOnButtonPress InputActionInstance = new BoomboxVolChangeOnButtonPress();
 
         void Awake()
         {
@@ -37,8 +37,9 @@ namespace lcBoomboxVolumeControl
 
             mls.LogInfo("mod awake");
 
-            harmony.PatchAll(typeof(BoomboxVolumeControlMod));
-          
+            harmony.PatchAll(typeof(BoomboxVolControlMod));
+            harmony.PatchAll(typeof(BoomboxVolChangePatch));
+
         }
     }
 }

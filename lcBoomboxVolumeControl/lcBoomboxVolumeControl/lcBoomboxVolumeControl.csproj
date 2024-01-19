@@ -71,9 +71,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoomboxVolumeControlMod.cs" />
-    <Compile Include="BoomboxVolumeDownOnButtonPress.cs" />
-    <Compile Include="Patches\BoomboxVolDownPatch.cs" />
+    <Compile Include="BoomboxVolControlMod.cs" />
+    <Compile Include="BoomboxVolChangeOnButtonPress.cs" />
+    <Compile Include="Patches\BoomboxVolChangePatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
