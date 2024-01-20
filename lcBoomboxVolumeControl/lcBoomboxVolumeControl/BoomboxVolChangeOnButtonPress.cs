@@ -13,7 +13,7 @@ namespace lcBoomboxVolumeControl.Patches
         [InputAction("<Keyboard>/o", Name = "BoomboxVolDown", ActionType = InputActionType.Button)]
         public InputAction BoomboxVolDownKey {  get; set; }
 
-        //[InputAction("<Keyboard>/p", Name = "BoomboxVolUp", ActionType = InputActionType.Button)]
-        //public InputAction BoomboxVolUpKey { get; set; }
+        [InputAction("<Keyboard>/p", Name = "BoomboxVolUp", ActionType = InputActionType.Button)]
+        public InputAction BoomboxVolUpKey { get; set; }
     }
 }

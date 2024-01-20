@@ -22,15 +22,12 @@ namespace lcBoomboxVolumeControl.Patches
                 if (___boomboxAudio.volume > 0f)
                 {
                     ___boomboxAudio.volume = 0f;
-                } else
-                {
-                    ___boomboxAudio.volume = 100f;
                 }
             } 
-            //else if(BoomboxVolControlMod.InputActionInstance.BoomboxVolUpKey.triggered && ___boomboxAudio.volume < 100)
-            //{
-            //    ___boomboxAudio.volume = 100f;
-            //}
+            else if(BoomboxVolControlMod.InputActionInstance.BoomboxVolUpKey.triggered && ___boomboxAudio.volume < 100)
+            {
+                ___boomboxAudio.volume = 100f;
+            }
         }
     }
 }
