@@ -11,22 +11,24 @@ namespace lcBoomboxVolumeControl.Patches
     [HarmonyPatch(typeof(BoomboxItem))]
     internal class BoomboxVolChangePatch
     {
-        private const float volumeChangeAmount = 1;
+        private const float VOLUME_CHANGE_AMOUNT = 0.2f;
+        private const float VOLUME_MAX = 1.0f;
+        private const float VOLUME_MIN = 0.0f;
 
         [HarmonyPatch(nameof(BoomboxItem.Update))]
-        [HarmonyPrefix]
+        [HarmonyPostfix]
         static void volumeDown(ref AudioSource ___boomboxAudio)
         {
             if (BoomboxVolControlMod.InputActionInstance.BoomboxVolDownKey.triggered)
             {
-                if (___boomboxAudio.volume > 0f)
+                if (___boomboxAudio.volume > VOLUME_MIN)
                 {
-                    ___boomboxAudio.volume = 0f;
+                    ___boomboxAudio.volume -= VOLUME_CHANGE_AMOUNT;
                 }
             } 
-            else if(BoomboxVolControlMod.InputActionInstance.BoomboxVolUpKey.triggered && ___boomboxAudio.volume < 100)
+            else if(BoomboxVolControlMod.InputActionInstance.BoomboxVolUpKey.triggered && ___boomboxAudio.volume < VOLUME_MAX)
             {
-                ___boomboxAudio.volume = 100f;
+                ___boomboxAudio.volume += VOLUME_CHANGE_AMOUNT;
             }
         }
     }
